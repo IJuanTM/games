@@ -15,7 +15,12 @@
 ## Available
 
 - Hangman
+
+<img src="/dist/img/screenshots/hangman.png" alt="Hangman">
+
 - Tic Tac Toe
+
+<img src="/dist/img/screenshots/tictactoe.png" alt="Tic Tac Toe">
 
 <br>
 
