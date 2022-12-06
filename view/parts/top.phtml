@@ -1,0 +1,25 @@
+<!-- This website is made using the Simpl framework. You can read more about Simpl here: https://www.github.com/IJuanTM/Simpl/ -->
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+  <!-- Page Title -->
+  <title>
+    <?php
+    if ($this->urlArr['pageName'] == 'tictactoe') echo 'Tic Tac Toe';
+    else echo ucfirst($this->urlArr['pageName'] ?: REDIRECT);
+    ?>
+  </title>
+  <!-- Require favicon, meta and CSS files -->
+  <?php
+  require_once FAVICON;
+  require_once META;
+  require_once CSS;
+  ?>
+</head>
+<body class="h-100">
+<!-- No script -->
+<noscript>To use this website to it's fullest potential, please enable JavaScript!</noscript>
+<!-- Get header -->
+<?php $this->part('header'); ?>
+<!-- Content -->
+<main class="content center">

@@ -1,0 +1,12 @@
+<?php
+$favicon = IMG . 'favicon/';
+if (!empty($this->urlArr['pageName']) && $this->urlArr['pageName'] !== 'home') $favicon .= $this->urlArr['pageName'] . '/';
+?>
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" sizes="180x180" href="<?= PageController::url($favicon . 'apple-touch-icon.png') ?>">
+<link rel="icon" type="image/png" sizes="32x32" href="<?= PageController::url($favicon . 'favicon-32x32.png') ?>">
+<link rel="icon" type="image/png" sizes="16x16" href="<?= PageController::url($favicon . 'favicon-16x16.png') ?>">
+
+<!-- Manifest -->
+<link rel="manifest" href="<?= PageController::url($favicon . 'site.webmanifest') ?>">

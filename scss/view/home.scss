@@ -1,0 +1,103 @@
+section.home {
+  row-gap: 1rem;
+  display: flex;
+  padding: 1rem 2rem;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+
+  span.background {
+    background-size: 2.5rem 4.375rem;
+    background-position: 0 0, 0 0, 1.25rem 2.1875rem, 1.25rem 2.1875rem, 0 0, 1.25rem 2.1875rem;
+    background-image: linear-gradient(30deg, #000 12%, transparent 12.5%, transparent 87%, #000 87.5%, #000),
+    linear-gradient(150deg, #000 12%, transparent 12.5%, transparent 87%, #000 87.5%, #000),
+    linear-gradient(30deg, #000 12%, transparent 12.5%, transparent 87%, #000 87.5%, #000),
+    linear-gradient(150deg, #000 12%, transparent 12.5%, transparent 87%, #000 87.5%, #000),
+    linear-gradient(60deg, #0007 25%, transparent 25.5%, transparent 75%, #0007 75%, #0007),
+    linear-gradient(60deg, #0007 25%, transparent 25.5%, transparent 75%, #0007 75%, #0007);
+  }
+
+  div.home-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  div.home-text {
+    font-size: 1.25rem;
+  }
+
+  div.card-row {
+    gap: 1rem;
+
+    *.game-card {
+      color: #FFF;
+      padding: 1rem;
+      cursor: pointer;
+      min-width: 10rem;
+      min-height: 5rem;
+      border-radius: .5rem;
+      text-decoration: none;
+      text-shadow: 0 0 .25rem rgb(#000, .5);
+      box-shadow: 0 .125rem .125rem 0 rgb(#000, .25);
+      transition: transform .125s ease-in-out, box-shadow .125s ease-in-out;
+
+      &.card-hangman {
+        background-color: rgb(25 75 125 / .5);
+        border: .125rem solid rgb(25 75 125 / .5);
+      }
+
+      &.card-snake {
+        background-color: rgb(75 125 25 / .5);
+        border: .125rem solid rgb(75 125 25 / .5);
+      }
+
+      &.card-tictactoe {
+        background-color: rgb(125 25 75 / .5);
+        border: .125rem solid rgb(125 25 75 / .5);
+      }
+
+      &.card-blackjack {
+        background-color: rgb(25 125 75 / .5);
+        border: .125rem solid rgb(25 125 75 / .5);
+      }
+
+      &.card-minesweeper {
+        background-color: rgb(125 75 25 / .5);
+        border: .125rem solid rgb(125 75 25 / .5);
+      }
+
+      &.card-yahtzee {
+        background-color: rgb(75 25 125 / .5);
+        border: .125rem solid rgb(75 25 125 / .5);
+      }
+
+      &.wip {
+        position: relative;
+        pointer-events: none;
+
+        &::after {
+          display: flex;
+          top: -.125rem;
+          left: -.125rem;
+          content: "WIP";
+          font-size: 2rem;
+          font-weight: 600;
+          position: absolute;
+          align-items: center;
+          border-radius: .5rem;
+          justify-content: center;
+          width: calc(100% + .25rem);
+          height: calc(100% + .25rem);
+          color: rgb(255 255 255 / .5);
+          background-color: rgb(#000, .5);
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 .125rem .25rem 0 rgb(#000, .25);
+        transition: transform .125s ease-in-out, box-shadow .125s ease-in-out;
+
+        @include transform(scale(1.05));
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+<?php PageController::redirect(0, 'error/403'); ?>
+<section class="blackjack w-100">
+  <span class="background"></span>
+  <div class="row h-100">
+    <div class="col table-left f-0">
+      <div class="row">
+        <div class="col chips-row">
+          <div class="row">
+            <div class="col text center-x">
+              <p>Last change:</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col last-change text-center">-</div>
+          </div>
+          <div class="row">
+            <div class="col text center-x">
+              <p>Total change:</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col total-change text-center">&plusmn; 0</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col betting-row">
+          <div class="row center-x">
+            <div class="col betting-circle f-0"></div>
+          </div>
+          <div class="row">
+            <div class="col text center-x">
+              <p>Bet chips:</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-center">
+              <label>
+                <input class="bet-amount" type="number" min="1" max="999999">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col remember-row">
+          <div class="row">
+            <div class="col text center-x">
+              <p>Remember bet:</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col toggle remember center">
+              <label>
+                <input class="remember-bet" type="checkbox">
+                <span class="toggle-button"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col chips-row">
+          <div class="row">
+            <div class="col text center-x">Your chips:</div>
+          </div>
+          <div class="row">
+            <div class="col player-chips text-center"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col table center f-g">
+      <div class="row center-x">
+        <div class="col option reset disabled center f-0">Reset</div>
+      </div>
+      <div class="row center-x">
+        <div class="col cards dealer-cards center-x f-0"></div>
+      </div>
+      <div class="row">
+        <div class="col message text-center"></div>
+      </div>
+      <div class="row player-side center-x">
+        <div class="col cards player-cards center-x f-0"></div>
+        <div class="col cards split-cards hidden center-x f-0"></div>
+      </div>
+      <div class="row center-x">
+        <div class="col option deal center f-0"><span class="key-press center">Space</span>Deal</div>
+      </div>
+    </div>
+    <div class="col table-right f-0">
+      <div class="row end-y">
+        <div class="col info-row">
+          <div class="row">
+            <div class="col text center-x">Hand value:</div>
+          </div>
+          <div class="row">
+            <div class="col hand-value center-x">-</div>
+            <div class="col split-value hidden center-x">-</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col option-row">
+          <div class="row">
+            <div class="col option hit disabled center"><span class="key-press center">1</span>Hit</div>
+          </div>
+          <div class="row">
+            <div class="col option stand disabled center"><span class="key-press center">2</span>Stand</div>
+          </div>
+          <div class="row">
+            <div class="col option double disabled center"><span class="key-press center">3</span>Double</div>
+          </div>
+          <div class="row">
+            <div class="col option split disabled center"><span class="key-press center">4</span>Split</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

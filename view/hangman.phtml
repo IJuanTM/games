@@ -1,0 +1,78 @@
+<section class="hangman center-y">
+  <span class="background"></span>
+  <div class="row scoreboard center-x">
+    <div class="col loss-row f-0">
+      <div class="row">
+        <div class="col"><i class="fas fa-close loss-icon center"></i></div>
+        <div class="col losses center">0</div>
+      </div>
+    </div>
+    <div class="col win-row f-0">
+      <div class="row">
+        <div class="col"><i class="fas fa-check win-icon center"></i></div>
+        <div class="col wins center">0</div>
+      </div>
+    </div>
+  </div>
+  <div class="row home-head">
+    <div class="col word-row center-x">
+      <span class="language-switch in-play center-y"><img src="../dist/img/en.png" alt="Language switch flag" title="Switch language"></span>
+      <i class="fas fa-dice-five random-word center" title="Random word"></i>
+      <h1 class="word"></h1>
+      <form class="word-form">
+        <label>
+          <input class="word-input" placeholder="custom word" minlength="3" maxlength="10">
+        </label>
+        <button class="submit-icon center" type="submit"><i class="fas fa-arrow-right"></i></button>
+      </form>
+      <span class="loading center">loading...</span>
+      <i class="fas fa-play play-icon center" title="New game"></i>
+    </div>
+  </div>
+  <div class="row game center-y">
+    <div class="col center">
+      <img class="game-image" src="../dist/img/0.png" alt="Hangman game image">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col keyboard">
+      <div class="row center-x">
+        <div class="col center f-0">q</div>
+        <div class="col center f-0">w</div>
+        <div class="col center f-0">e</div>
+        <div class="col center f-0">r</div>
+        <div class="col center f-0">t</div>
+        <div class="col center f-0">y</div>
+        <div class="col center f-0">u</div>
+        <div class="col center f-0">i</div>
+        <div class="col center f-0">o</div>
+        <div class="col center f-0">p</div>
+      </div>
+      <div class="row center-x">
+        <div class="col center f-0">a</div>
+        <div class="col center f-0">s</div>
+        <div class="col center f-0">d</div>
+        <div class="col center f-0">f</div>
+        <div class="col center f-0">g</div>
+        <div class="col center f-0">h</div>
+        <div class="col center f-0">j</div>
+        <div class="col center f-0">k</div>
+        <div class="col center f-0">l</div>
+      </div>
+      <div class="row center-x">
+        <div class="col center f-0">z</div>
+        <div class="col center f-0">x</div>
+        <div class="col center f-0">c</div>
+        <div class="col center f-0">v</div>
+        <div class="col center f-0">b</div>
+        <div class="col center f-0">n</div>
+        <div class="col center f-0">m</div>
+      </div>
+    </div>
+  </div>
+  <div class="row guesses center-x">
+    <?php for ($i = 0; $i < 11; $i++) : ?>
+      <div class="guess center-y"><i class="fas fa-question"></i></div>
+    <?php endfor; ?>
+  </div>
+</section>

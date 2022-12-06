@@ -1,0 +1,390 @@
+section.hangman {
+  display: flex;
+  padding-bottom: 2rem;
+  flex-direction: column;
+  font-family: "Mali", cursive;
+
+  span.background {
+    background-size: 1.5rem 1.5rem;
+    background-image: radial-gradient(#000 .125rem, transparent .125rem);
+  }
+
+  div.scoreboard {
+    column-gap: 3rem;
+
+    @media screen and (min-width: $min-sm) {
+      column-gap: 4rem;
+    }
+
+    div.win-row, div.loss-row {
+      display: flex;
+      padding-bottom: 2.5rem;
+
+      > div.row {
+        column-gap: 1rem;
+
+        @media screen and (min-width: $min-sm) {
+          column-gap: 2rem;
+        }
+
+        i {
+          font-size: 1.75rem;
+          text-shadow: 0 .125rem .125rem rgb(#000, .125);
+
+          @media screen and (min-width: $min-sm) {
+            font-size: 2rem;
+          }
+
+          &.loss-icon {
+            color: $red-light;
+          }
+
+          &.win-icon {
+            color: $green-light;
+          }
+        }
+
+        div.losses, div.wins {
+          font-size: 1.25rem;
+          text-shadow: 0 .125rem .125rem rgb(#000, .125);
+
+          @media screen and (min-width: $min-sm) {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  div.home-head {
+    width: fit-content;
+
+    div.word-row {
+      display: flex;
+      position: relative;
+      flex-direction: row;
+
+      span.language-switch {
+        width: 2rem;
+        left: -5.25rem;
+        cursor: pointer;
+        height: 2.25rem;
+        position: absolute;
+
+        @media screen and (min-width: $min-sm) {
+          width: 2.5rem;
+          left: -6.375rem;
+          height: 2.875rem;
+        }
+
+        > img {
+          opacity: .75;
+          box-shadow: 0 .125rem .125rem 0 rgb(#000, .25);
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+
+        &.in-play {
+          display: flex;
+          left: -2.75rem;
+          pointer-events: none;
+
+          @media screen and (min-width: $min-sm) {
+            left: -3.375rem;
+          }
+        }
+      }
+
+      i.random-word {
+        display: none;
+        left: -2.75rem;
+
+        @media screen and (min-width: $min-sm) {
+          left: -3.375rem;
+        }
+
+        &:hover {
+          @include animation(shake 1s 1);
+        }
+      }
+
+      h1.word {
+        display: flex;
+        column-gap: .5rem;
+
+        @media screen and (min-width: $min-md) {
+          font-size: 2.5rem;
+        }
+
+        > span {
+          width: 1.125rem;
+          font-size: 1.5rem;
+          user-select: none;
+          position: relative;
+          padding-bottom: .25rem;
+          border-bottom: solid .125rem #000;
+          text-shadow: 0 .125rem .125rem rgb(#000, .125);
+
+          @media screen and (min-width: $min-sm) {
+            width: 2rem;
+            font-size: 2rem;
+          }
+
+          &.space, &.dash {
+            width: .75rem;
+            border-bottom: none;
+
+            @media screen and (min-width: $min-md) {
+              width: 1rem;
+            }
+          }
+
+          &.to-be-guessed {
+            text-shadow: none;
+            color: transparent;
+          }
+
+          &:not(.space, .dash)::after {
+            left: 0;
+            width: 100%;
+            content: '';
+            height: .125rem;
+            bottom: -.125rem;
+            position: absolute;
+            box-shadow: 0 .125rem .125rem 0 rgb(#000, .125);
+          }
+        }
+
+        &.win {
+          color: $green-light;
+
+          > span:not(.space, .dash) {
+            border-bottom: solid .125rem $green-light;
+          }
+        }
+
+        &.lose {
+          color: $red-light;
+
+          > span:not(.space, .dash) {
+            border-bottom: solid .125rem $red-light;
+          }
+        }
+      }
+
+      form.word-form {
+        display: none;
+
+        label {
+          position: relative;
+
+          input.word-input {
+            width: 10rem;
+            height: 2.25rem;
+            font-size: 1rem;
+            padding: .25rem 0;
+            text-align: center;
+            border-bottom: solid .125rem #000;
+            text-shadow: 0 .125rem .125rem rgb(#000, .125);
+
+            @media screen and (min-width: $min-sm) {
+              width: 18rem;
+              height: 2.875rem;
+              font-size: 1.5rem;
+            }
+
+            &.error {
+              color: $red-light;
+              border-bottom: solid .125rem $red-light;
+            }
+
+            &::placeholder {
+              opacity: .25;
+            }
+          }
+
+          &::after {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            content: '';
+            height: .125rem;
+            position: absolute;
+            box-shadow: 0 .125rem .125rem 0 rgb(#000, .125);
+          }
+        }
+
+        button.submit-icon {
+          width: 2.25rem;
+          cursor: pointer;
+          height: 2.25rem;
+          right: -2.75rem;
+          font-size: 1.5rem;
+          position: absolute;
+          color: rgb(#000, .5);
+          text-shadow: 0 .125rem .125rem rgb(#000, .125);
+
+          @media screen and (min-width: $min-sm) {
+            width: 2.875rem;
+            font-size: 2rem;
+            right: -3.375rem;
+            height: 2.875rem;
+          }
+
+          &:hover {
+            color: rgb(#000, .75);
+          }
+        }
+      }
+
+      span.loading {
+        top: -.25rem;
+        display: none;
+        height: 2.25rem;
+        font-size: 1.5rem;
+        text-shadow: 0 .125rem .125rem rgb(#000, .125);
+
+        @media screen and (min-width: $min-sm) {
+          font-size: 2rem;
+          height: 2.875rem;
+        }
+      }
+
+      i.play-icon {
+        right: -2.75rem;
+        transition: transform .5s ease-in-out;
+
+        @include transform(rotate(0deg));
+
+        @media screen and (min-width: $min-sm) {
+          right: -3.375rem;
+        }
+
+        &.fa-arrows-rotate:hover {
+          @include transform(rotate(180deg));
+        }
+      }
+
+      i.random-word, i.play-icon {
+        width: 2.25rem;
+        cursor: pointer;
+        height: 2.25rem;
+        font-size: 1.5rem;
+        position: absolute;
+        color: rgb(#000, .5);
+        text-shadow: 0 .125rem .125rem rgb(#000, .125);
+
+        @media screen and (min-width: $min-sm) {
+          font-size: 2rem;
+          width: 2.875rem;
+          height: 2.875rem;
+        }
+
+        &:hover {
+          color: rgb(#000, .75);
+        }
+      }
+    }
+  }
+
+  div.game {
+    height: 30rem;
+
+    @media screen and (max-height: $max-md) {
+      height: 17.5rem;
+    }
+
+    @media screen and (max-height: $max-sm) {
+      height: 10rem;
+    }
+
+    @media screen and (min-width: $min-sm) {
+      height: 50vh;
+    }
+
+    > div.col {
+      height: 100%;
+
+      img.game-image {
+        max-height: 100%;
+        height: fit-content;
+        filter: drop-shadow(0 .125rem .125rem rgb(#000, .25));
+      }
+    }
+  }
+
+  div.keyboard {
+    display: flex;
+    row-gap: .5rem;
+    flex-wrap: wrap;
+
+    > div.row {
+      column-gap: .5rem;
+      flex-wrap: nowrap;
+
+      &:nth-child(2) {
+        margin-left: -.5rem;
+      }
+
+      &:nth-child(3) {
+        margin-left: -2rem;
+      }
+    }
+
+    div.col {
+      height: 2rem;
+      width: 1.625rem;
+      cursor: pointer;
+      font-size: .875rem;
+      border-radius: .5rem;
+      background-color: #F5F5F5;
+      box-shadow: 0 .125rem .125rem 0 rgb(#000, .25);
+
+      @media screen and (min-width: $min-sm) {
+        width: 2rem;
+        height: 2.5rem;
+        font-size: 1rem;
+      }
+
+      &.correct, &.correct:hover {
+        pointer-events: none;
+        background-color: rgb($green-light, .25);
+        box-shadow: inset 0 .125rem .125rem 0 rgb(#000, .25);
+      }
+
+      &.incorrect, &.incorrect:hover {
+        pointer-events: none;
+        background-color: rgb($red-light, .25);
+        box-shadow: inset 0 .125rem .125rem 0 rgb(#000, .25);
+      }
+
+      &:hover {
+        background-color: #F0F0F0;
+        box-shadow: inset 0 .125rem .125rem 0 rgb(#000, .25);
+      }
+    }
+  }
+
+  div.guesses {
+    column-gap: .5rem;
+    padding-top: 2.5rem;
+
+    @media screen and (min-width: $min-sm) {
+      column-gap: 1rem;
+    }
+
+    div.guess {
+      height: 2rem;
+      font-size: 1.5rem;
+      user-select: none;
+      color: rgb(#000, .25);
+      text-shadow: 0 .125rem .125rem rgb(#000, .125);
+
+      &.used {
+        color: $red-light;
+      }
+    }
+  }
+}

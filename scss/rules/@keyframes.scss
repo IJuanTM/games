@@ -1,0 +1,38 @@
+@include keyframes(shake) {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-5deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(5deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+}
+
+@include keyframes(reload) {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@include keyframes(scanline) {
+  0% {
+    transform: translate3d(0, 100000%, 0);
+  }
+}
+
+@include keyframes(scanlines) {
+  0% {
+    background-position: 0 50%;
+  }
+}

@@ -1,0 +1,38 @@
+header {
+  div.nav-bar {
+    z-index: 2;
+    height: 4rem;
+    position: relative;
+
+    @media screen and (max-width: $max-md) {
+      &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+    }
+
+    *.nav-button {
+      z-index: 3;
+      width: 4rem;
+      height: 100%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      text-decoration: none;
+      text-shadow: 0 0 .125rem rgb(#000, .25);
+
+      &.lang-button {
+        padding: 0 1rem;
+
+        > img {
+          box-shadow: 0 0 .125rem 0 rgb(#000, .25);
+        }
+      }
+
+      &:hover {
+        color: rgb(#000, .75);
+      }
+    }
+  }
+}

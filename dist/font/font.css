@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Mali';
+  src: local(''), url('webfonts/Mali.woff2') format('woff2'), url('webfonts/Mali.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: local(''), url('webfonts/Poppins.woff2') format('woff2'), url('webfonts/Poppins.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: local(''), url('webfonts/Quicksand.woff2') format('woff2'), url('webfonts/Quicksand.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: local(''), url('webfonts/Rubik.woff2') format('woff2'), url('webfonts/Rubik.woff') format('woff');
+}

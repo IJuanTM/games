@@ -1,0 +1,57 @@
+<section class="tictactoe">
+  <span class="background"></span>
+  <div class="row">
+    <div class="col card button ai f-0" title="Play against a computer"><i class="fas fa-laptop center"></i></div>
+    <div class="col card">
+      <div class="row scoreboard center-x">
+        <div class="col f-0">
+          <div class="row score">
+            <div class="col o"></div>
+            <div class="col o-score center-y f-0">0</div>
+          </div>
+        </div>
+        <div class="col f-0">
+          <div class="row score">
+            <div class="col x-score center-y f-0">0</div>
+            <div class="col x"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="disabled col card button restart f-0" title="Restart game"><i class="fas fa-arrows-rotate center"></i></div>
+  </div>
+  <div class="row">
+    <div class="col card game">
+      <div class="row">
+        <div class="col field">
+          <div class="row">
+            <div class="col" id="0"></div>
+            <div class="col" id="1"></div>
+            <div class="col" id="2"></div>
+            <span class="line top"></span>
+          </div>
+          <span class="line left"></span>
+          <div class="row">
+            <div class="col" id="3"></div>
+            <div class="col" id="4"></div>
+            <div class="col" id="5"></div>
+            <span class="line middle"></span>
+          </div>
+          <span class="line center"></span>
+          <span class="line diagonal-left"></span>
+          <span class="line diagonal-right"></span>
+          <div class="row">
+            <div class="col" id="6"></div>
+            <div class="col" id="7"></div>
+            <div class="col" id="8"></div>
+            <span class="line bottom"></span>
+          </div>
+          <span class="line right"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col card message center"></div>
+  </div>
+</section>

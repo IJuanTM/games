@@ -1,0 +1,19 @@
+html[lang="en"] {
+  *.en {
+    display: inherit;
+  }
+
+  *.nl {
+    display: none;
+  }
+}
+
+html[lang="nl"] {
+  *.en {
+    display: none;
+  }
+
+  *.nl {
+    display: inherit;
+  }
+}

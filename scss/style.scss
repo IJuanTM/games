@@ -1,0 +1,49 @@
+html {
+  line-height: 1.25;
+
+  @media screen and (max-height: $max-lg) {
+    font-size: .875rem;
+  }
+
+  @media screen and (min-height: $min-xl) {
+    font-size: 1.125rem;
+  }
+}
+
+body {
+  font-family: $font;
+  background-color: #FCFCFC;
+
+  &.white {
+    color: #FFF;
+
+    a:hover {
+      color: rgb(#FFF, .75) !important;
+    }
+  }
+}
+
+noscript {
+  color: #F00;
+  display: block;
+  font-size: 1rem;
+  padding: 1rem 0;
+  line-height: 2rem;
+  text-align: center;
+  font-family: monospace;
+  background-color: #000;
+
+  @media screen and (min-width: $min-lg) {
+    font-size: 1.25rem;
+  }
+}
+
+span.background {
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: .05;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+}

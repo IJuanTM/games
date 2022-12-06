@@ -1,0 +1,467 @@
+section.blackjack {
+  padding: 0 2rem 2rem;
+  height: calc(100vh - 6rem);
+  font-family: "Quicksand", sans-serif;
+
+  @media screen and (min-width: $min-xxl) {
+    padding: 0 4rem 2rem;
+  }
+
+  > span.background {
+    opacity: 1;
+    background-color: #090;
+    background-image: repeating-linear-gradient(120deg, rgb(#FF0, .1), rgb(#FF0, .1) .0625rem, transparent .0625rem, transparent 2rem),
+    repeating-linear-gradient(60deg, rgb(#FF0, .1), rgb(#FF0, .1) .0625rem, transparent .0625rem, transparent 2rem);
+  }
+
+  > div.row {
+    row-gap: 4rem;
+
+    @media screen and (max-width: $max-md) {
+      flex-direction: column;
+    }
+
+    div.last-change, div.total-change, input.bet-amount, div.player-chips, div.hand-value, div.split-value {
+      height: 1.25rem;
+      font-size: 1.25rem;
+      line-height: 1.25rem;
+
+      @media screen and (min-width: $min-xxl) {
+        height: 1.5rem;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+      }
+    }
+
+    div.table-left, div.table-right {
+      display: flex;
+      row-gap: 2rem;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      @media screen and (min-width: $min-xxl) {
+        row-gap: 4rem;
+      }
+    }
+
+    div.table-left {
+      div.chips-row, div.remember-row {
+        display: flex;
+        row-gap: .75rem;
+        flex-direction: column;
+
+        @media screen and (min-width: $min-xxl) {
+          row-gap: 1rem;
+        }
+      }
+
+      div.betting-row {
+        display: flex;
+        row-gap: 1rem;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        @media screen and (min-width: $min-xxl) {
+          row-gap: 2rem;
+        }
+
+        label {
+          position: relative;
+
+          input.bet-amount {
+            width: 10rem;
+
+            &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+              margin: 0;
+              -webkit-appearance: none;
+            }
+          }
+
+          &::after {
+            left: 0;
+            width: 100%;
+            content: "";
+            height: .125rem;
+            bottom: -.125rem;
+            position: absolute;
+            background-color: #FF0;
+          }
+        }
+
+        div.betting-circle {
+          &::before {
+            content: "";
+            width: 12rem;
+            display: flex;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            border: .25rem solid #FF0;
+
+            @media screen and (min-width: $min-xxl) {
+              width: 14rem;
+            }
+          }
+        }
+      }
+    }
+
+    div.text {
+      color: rgb(#FFF, .5);
+    }
+
+    div.option {
+      color: #FFF;
+      cursor: pointer;
+      font-size: .75rem;
+      position: relative;
+      padding: .25rem .5rem;
+      border-radius: .25rem;
+      background-color: #090;
+      border: .125rem solid #FF0;
+
+      @media screen and (min-width: $min-xxl) {
+        font-size: 1rem;
+        padding: .5rem 1rem;
+        border-width: .25rem;
+      }
+
+      span.key-press {
+        top: -.125rem;
+        padding: .25rem;
+        font-size: .75rem;
+        min-width: 1.75rem;
+        position: absolute;
+        pointer-events: none;
+        color: rgb(#FFF, .5);
+        border-radius: .25rem;
+        right: calc(100% + .625rem);
+        background-color: rgb(#FFF, .1);
+        border: .125rem solid rgb(#FFF, .1);
+
+        @media screen and (min-width: $min-xxl) {
+          padding: .5rem;
+          font-size: 1rem;
+          min-width: 2.25rem;
+        }
+      }
+
+      &.disabled {
+        opacity: .5;
+        pointer-events: none;
+        color: #FFF !important;
+      }
+
+      &:hover {
+        border-color: rgb(#FF0, .75);
+        background-color: rgb(#090, .75);
+      }
+    }
+
+    div.toggle {
+      label {
+        display: flex;
+
+        input:checked ~ span::after {
+          display: flex;
+        }
+
+        span.toggle-button {
+          color: #FFF;
+          width: 1rem;
+          height: 1rem;
+          display: flex;
+          cursor: pointer;
+          position: relative;
+          border-radius: .25rem;
+          border: .125rem solid #FF0;
+
+          &::after {
+            width: 100%;
+            display: none;
+            content: "\f00c";
+            font-weight: 900;
+            font-size: .625rem;
+            align-items: center;
+            line-height: .875rem;
+            justify-content: center;
+            font-family: "Font Awesome 6 Free", sans-serif;
+          }
+
+          &:hover {
+            border-color: rgb(#FF0, .75);
+            background-color: rgb(#090, .75);
+
+            &::after {
+              color: rgb(#FFF, .75);
+            }
+          }
+        }
+      }
+    }
+
+    div.table {
+      z-index: 2;
+      row-gap: 2rem;
+      flex-direction: column;
+
+      @media screen and (min-width: $min-xxl) {
+        row-gap: 2rem;
+      }
+
+      div.player-side {
+        row-gap: 1rem;
+        column-gap: 2rem;
+
+        @media screen and (min-width: $min-xxl) {
+          row-gap: 2rem;
+          column-gap: 4rem;
+        }
+      }
+
+      div.cards {
+        position: relative;
+        min-height: 16.8rem;
+        align-items: flex-end;
+
+        @media screen and (min-width: $min-xxl) {
+          min-height: 19.6rem;
+        }
+
+        > :not(:first-child) {
+          margin-left: -9.5rem;
+
+          @media screen and (min-width: $min-xxl) {
+            margin-left: -10.5rem;
+          }
+        }
+
+        div.card {
+          width: 12rem;
+          user-select: none;
+          aspect-ratio: 5/7;
+          position: relative;
+
+          @media screen and (min-width: $min-xxl) {
+            width: 14rem;
+          }
+
+          div.card-content {
+            color: #000;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            pointer-events: none;
+            border-radius: .25rem;
+            transition: transform .5s;
+            transform-style: preserve-3d;
+            box-shadow: 0 0 .5rem 0 rgb(#000, .5);
+
+            div.card-front, div.card-back {
+              width: 100%;
+              height: 100%;
+              display: flex;
+              overflow: hidden;
+              position: absolute;
+              padding: .5rem .25rem;
+              border-radius: .25rem;
+              background-color: #FFF;
+              flex-direction: column;
+              backface-visibility: hidden;
+
+              @media screen and (min-width: $min-xxl) {
+                padding: .75rem .5rem;
+              }
+
+              div.face-row {
+                position: relative;
+
+                div.face {
+                  flex-grow: 1;
+                  display: flex;
+                  row-gap: 1rem;
+                  position: absolute;
+                  flex-direction: column;
+
+                  @media screen and (min-width: $min-xxl) {
+                    row-gap: 1.5rem;
+                  }
+
+                  span.line {
+                    width: 26rem;
+                    height: .35rem;
+                    background-color: #000;
+
+                    @include transform(rotate(-60deg));
+
+                    @media screen and (min-width: $min-xxl) {
+                      width: 30rem;
+                      height: .5rem;
+                    }
+                  }
+
+                  span.line-back {
+                    &:nth-child(odd) {
+                      background-color: #F00 !important;
+                      @include transform(rotate(60deg));
+                    }
+
+                    &:nth-child(even) {
+                      background-color: #000 !important;
+                      @include transform(rotate(-60deg));
+                    }
+                  }
+
+                  svg {
+                    width: 4rem;
+
+                    @media screen and (min-width: $min-xxl) {
+                      width: 5rem;
+                    }
+                  }
+                }
+              }
+
+              div.card-header, div.card-footer {
+                display: flex;
+                row-gap: .75rem;
+                flex-direction: column;
+
+                @media screen and (min-width: $min-xxl) {
+                  row-gap: 1rem;
+                }
+
+                div.value {
+                  width: 2rem;
+                  font-size: 1.25rem;
+                  line-height: 1.25rem;
+                  background-color: #FFF;
+
+                  @media screen and (min-width: $min-xxl) {
+                    width: 2.5rem;
+                    font-size: 2rem;
+                    line-height: 2rem;
+                  }
+                }
+
+                div.suit {
+                  svg {
+                    width: 2rem;
+                    height: 1.5rem;
+
+                    @media screen and (min-width: $min-xxl) {
+                      height: 2rem;
+                      width: 2.5rem;
+                    }
+                  }
+                }
+              }
+            }
+
+            div.card-back {
+              @include transform(rotateY(180deg));
+            }
+          }
+
+          &.red {
+            span.line {
+              background-color: #F00 !important;
+            }
+
+            span.suit {
+              color: #F00 !important;
+            }
+
+            div.value, div.suit {
+              color: #F00 !important;
+            }
+
+            svg {
+              fill: #F00 !important;
+            }
+          }
+
+          &.down {
+            div.card-content {
+              @include transform(rotateY(180deg));
+            }
+          }
+        }
+
+        &.hidden {
+          display: none;
+        }
+
+        &.active {
+          box-shadow: 0 0 1.5rem .25rem #FF0;
+
+          @media screen and (min-width: $min-xxl) {
+            box-shadow: 0 0 2.5rem .5rem #FF0;
+          }
+        }
+
+        &::before {
+          content: "";
+          width: 12rem;
+          display: flex;
+          aspect-ratio: 5/7;
+          position: absolute;
+          border-radius: .25rem;
+          border: .25rem solid #FF0;
+
+          @media screen and (min-width: $min-xxl) {
+            width: 14rem;
+          }
+        }
+      }
+
+      div.message {
+        color: #FFF;
+        height: 1rem;
+        line-height: 1rem;
+
+        @media screen and (min-width: $min-xxl) {
+          height: 1.5rem;
+          font-size: 1.5rem;
+          line-height: 1.5rem;
+        }
+      }
+
+      div.option {
+        width: 8rem;
+
+        @media screen and (min-width: $min-xxl) {
+          width: 10rem;
+        }
+      }
+    }
+
+    div.table-right {
+      width: 14rem;
+
+      div.info-row {
+        display: flex;
+        row-gap: .75rem;
+        flex-direction: column;
+
+        @media screen and (min-width: $min-xxl) {
+          row-gap: 1rem;
+        }
+
+        div.split-value.hidden {
+          display: none;
+        }
+      }
+
+      div.option-row {
+        display: flex;
+        row-gap: 1rem;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        @media screen and (min-width: $min-xxl) {
+          row-gap: 2rem;
+        }
+      }
+    }
+  }
+}

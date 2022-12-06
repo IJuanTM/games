@@ -1,0 +1,17 @@
+</main>
+<!-- Get footer -->
+<?php $this->part('footer'); ?>
+<script>
+  const heart = <?= json_encode(ApplicationController::svg('heart'))?>;
+  const spade = <?= json_encode(ApplicationController::svg('spade'))?>;
+  const diamond = <?= json_encode(ApplicationController::svg('diamond'))?>;
+  const club = <?= json_encode(ApplicationController::svg('club'))?>;
+  const jack = <?= json_encode(ApplicationController::svg('jack'))?>;
+  const queen = <?= json_encode(ApplicationController::svg('queen'))?>;
+  const king = <?= json_encode(ApplicationController::svg('king'))?>;
+  const joker = <?= json_encode(ApplicationController::svg('joker'))?>;
+</script>
+<!-- Require JavaScript file -->
+<?php require_once JS; ?>
+</body>
+</html>
