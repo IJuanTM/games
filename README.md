@@ -1,7 +1,31 @@
-***
-
 <div align="center">
 
-#### This website is made using the [Simpl](https://github.com/IJuanTM/Simpl/) framework.
+# Games
+
+#### A website to play all of the minigames I made!
+
+#### [games.iwanvanderwal.nl](https://games.iwanvanderwal.nl/)
+
+<br>
+
+### [Available](#available) • [WIP](#wip)
 
 </div>
+
+## Available
+
+- Hangman
+- Tic Tac Toe
+
+<br>
+
+## WIP
+
+- Snake
+- Blackjack
+- Yahtzee
+- Minesweeper
+
+<br>
+
+### Enjoy!
